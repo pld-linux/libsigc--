@@ -1,14 +1,19 @@
 Summary:	The Typesafe Signal Framework for C++
+Summary(pl):	¶rodowisko sygna≥Ûw z kontrol± typÛw dla C++
 Name:		libsigc++
 Version:	1.0.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	‚…¬Ã…œ‘≈À…
+Group(uk):	‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%{name}-%{version}.tar.gz
 Patch0:		%{name}-remove_stupid_install-data-hook_targets.patch
 URL:		http://libsigc.sourceforge.net/
@@ -22,35 +27,62 @@ Obsoletes:	libsigc++-examples
 %description
 This library implements a full callback system for use in widget
 libraries, abstract interfaces, and general programming. Originally
-part of the Gtk-- widget set, %name is now a seperate library to
+part of the Gtk-- widget set, %{name} is now a seperate library to
 provide for more general use. It is the most complete library of its
 kind with the ablity to connect an abstract callback to a class
 method, function, or function object. It contains adaptor classes for
 connection of dissimilar callbacks and has an ease of use unmatched by
 other C++ callback libraries.
 
+%description -l pl
+Ta biblioteka jest implementacj± pe≥nego systemu callbackÛw do
+uøywania w bibliotekach widgetÛw, interfejsach abstrakcyjnych i
+ogÛlnym programowaniu. Oryginalnie by≥a to czÍ∂Ê zestawu widgetÛw
+Gtk--, ale jest teraz oddzieln± bibliotek± ogÛlniejszego
+przeznaczenia. Jest to kompletna biblioteka tego typu z moøliwo∂ci±
+≥±czenia abstrakcyjnych callbackÛw z metodami klas, funkcjami lub
+obiektami funkcji. Zawiera klasy adapterÛw do ≥±czenia rÛønych
+callbackÛw.
+
 %package devel
-Summary:	development tools for the Typesafe Signal Framework for C++ 
+Summary:	Development tools for the Typesafe Signal Framework for C++
+Summary(pl):	NarzÍdzia programistyczne do ∂rodowiska libsig++
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	m4
 Requires:	%{name} = %{version}
 
 %description devel
 Development tools for the Typesafe Signal Framework for C++.
 
+%description devel -l pl
+NarzÍdzia programistyczne do ∂rodowiska libsigc++ - sygna≥Ûw z
+kontrol± typÛw.
+
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
+Summary(pl):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name}-devel = %{version}
 
 %description static
 Static Typesafe Signal Framework for C++ libraries.
+
+%description static -l pl
+Statyczna biblioteka libsigc++ - ∂rodowiska sygna≥Ûw z kontrol± typÛw.
 
 %prep
 %setup -q
@@ -75,11 +107,11 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS README IDEAS NEWS ChangeLog TODO doc/*
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
