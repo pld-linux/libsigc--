@@ -7,7 +7,7 @@ Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
-Source0:	http://prdownloads.sourceforge.net/libsigc/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/libsigc/%{name}-%{version}.tar.gz
 Patch0:		%{name}-m4.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
