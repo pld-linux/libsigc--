@@ -74,8 +74,8 @@ CXXFLAGS="%{rpmcflags} -fno-exceptions"
 rm -f scripts/missing
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
