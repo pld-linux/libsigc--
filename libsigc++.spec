@@ -1,9 +1,10 @@
 Summary:	The Typesafe Signal Framework for C++
 Name:		libsigc++
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
@@ -27,6 +28,7 @@ other C++ callback libraries.
 %package devel
 Summary:	development tools for the Typesafe Signal Framework for C++ 
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	m4
@@ -38,6 +40,7 @@ Development tools for the Typesafe Signal Framework for C++.
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -51,9 +54,7 @@ Static Typesafe Signal Framework for C++ libraries.
 
 %build
 autoconf
-LDFLAGS="-s"
-CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
-export LDFLAGS CXXFLAGS
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions"
 %configure
 
 %{__make}
@@ -63,8 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf AUTHORS README IDEAS NEWS ChangeLog TODO doc/*
 
