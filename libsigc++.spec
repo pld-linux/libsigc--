@@ -1,7 +1,7 @@
 Summary:	The Typesafe Signal Framework for C++
 Name:		libsigc++
-Version:	1.0.3
-Release:	6
+Version:	1.0.4
+Release:	1
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
@@ -9,7 +9,8 @@ Group:		Libraries
 Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%name-%version.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%{name}-%{version}.tar.gz
+Patch0:		%{name}-remove_stupid_install-data-hook_targets.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,11 +54,11 @@ Static Typesafe Signal Framework for C++ libraries.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
-
-rm -f missing
+rm -f scripts/missing
 libtoolize --copy --force
 aclocal
 autoconf
@@ -90,8 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/sigc-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-%{_includedir}/sigc++
-%{_libdir}/sigc++
+%{_includedir}/sigc++-1.0
+%{_libdir}/sigc++-1.0
 %{_aclocaldir}/*
 
 %files static
