@@ -1,6 +1,6 @@
 Summary:	The Typesafe Signal Framework for C++
 Name:		libsigc++
-Version:	1.0.0
+Version:	1.0.1
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -12,6 +12,7 @@ Patch0:		%{name}-ac_thread.sh.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libsigc++-examples
 
 %description
 This library implements a full callback system for use in widget
