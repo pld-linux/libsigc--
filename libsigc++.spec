@@ -72,7 +72,7 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
 rm -f scripts/missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
