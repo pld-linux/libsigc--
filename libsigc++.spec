@@ -24,7 +24,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This library implements a full callback system for use in widget
 libraries, abstract interfaces, and general programming. Originally
-part of the Gtk-- widget set, %{name} is now a seperate library to
+part of the Gtk-- widget set, libsigc++ is now a seperate library to
 provide for more general use. It is the most complete library of its
 kind with the ablity to connect an abstract callback to a class
 method, function, or function object. It contains adaptor classes for
@@ -54,6 +54,17 @@ Development tools for the Typesafe Signal Framework for C++.
 %description devel -l pl
 Narzêdzia programistyczne do ¶rodowiska libsigc++ - sygna³ów z
 kontrol± typów.
+
+%package doc
+Summary:	Reference documentation for libsigc++
+Summary(pl):	Szczegó³owa dokumentacja dla libsigc++
+Group:		Documentation
+
+%description doc
+Reference documentation for libsigc++.
+
+%description doc -l pl
+Szczegó³owa dokumentacja dla libsigc++.
 
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
@@ -95,17 +106,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog TODO devel-docs/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/sigc++-*
 %{_libdir}/sigc++*
 %{_pkgconfigdir}/*
+
+%files doc
+%defattr(644,root,root,755)
+%doc devel-docs/*
 
 %files static
 %defattr(644,root,root,755)
