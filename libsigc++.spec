@@ -1,7 +1,7 @@
 Summary:	The Typesafe Signal Framework for C++
 Name:		libsigc++
 Version:	1.0.1
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
