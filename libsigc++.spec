@@ -8,19 +8,20 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%name-%version.tar.gz
-Patch0:	%{name}-ac_thread.sh.patch
+Patch0:		%{name}-ac_thread.sh.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This library implements a full callback system for use in widget libraries,
-abstract interfaces, and general programming. Originally part of the Gtk--
-widget set, %name is now a seperate library to provide for more general use. It
-is the most complete library of its kind with the ablity to connect an abstract
-callback to a class method, function, or function object. It contains adaptor
-classes for connection of dissimilar callbacks and has an ease of use unmatched
-by other C++ callback libraries.
+This library implements a full callback system for use in widget
+libraries, abstract interfaces, and general programming. Originally
+part of the Gtk-- widget set, %name is now a seperate library to
+provide for more general use. It is the most complete library of its
+kind with the ablity to connect an abstract callback to a class
+method, function, or function object. It contains adaptor classes for
+connection of dissimilar callbacks and has an ease of use unmatched by
+other C++ callback libraries.
 
 %package devel
 Summary:	development tools for the Typesafe Signal Framework for C++ 
@@ -87,4 +88,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/*
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
