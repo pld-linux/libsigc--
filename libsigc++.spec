@@ -8,6 +8,7 @@ License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.2/%{name}-%{version}.tar.bz2
+# Source0-md5: 1f29decfaa3793f6e55ae905727588be
 Patch0:		%{name}-m4.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
