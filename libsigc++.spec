@@ -1,25 +1,25 @@
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
 Name:		libsigc++
-Version:	1.2.5
-Release:	3
+Version:	1.9.14
+Release:	1
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.2/%{name}-%{version}.tar.bz2
-# Source0-md5: 1f29decfaa3793f6e55ae905727588be
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	a4317996412418552866dabb29ebc7b4
 Patch0:		%{name}-m4.patch
-Patch1:		%{name}-pc-libdir.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	m4
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	perl-base
 Obsoletes:	libsigc++-examples
 Conflicts:	%{name} < 1.1.0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This library implements a full callback system for use in widget
@@ -46,7 +46,7 @@ Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
 Requires:	m4
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 Development tools for the Typesafe Signal Framework for C++.
@@ -59,7 +59,7 @@ kontrol± typów.
 Summary:	Static Typesafe Signal Framework for C++ libraries
 Summary(pl):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static Typesafe Signal Framework for C++ libraries.
@@ -70,17 +70,14 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-CXXFLAGS="%{rpmcflags} -fno-exceptions"
 rm -f scripts/missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
-
 %{__make}
 
 %install
@@ -88,6 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_docdir}/libsigc-2.0/docs devel-docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,15 +96,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS README IDEAS FEATURES NEWS ChangeLog TODO doc/*
+%doc ChangeLog TODO devel-docs/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/sigc++-*
-%{_libdir}/sigc++-*
 %{_pkgconfigdir}/*
 
 %files static
