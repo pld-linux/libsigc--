@@ -1,28 +1,38 @@
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¶rodowisko sygna≥Ûw z kontrol± typÛw dla C++
 Name:		libsigc++
-Version:	1.0.4
-Release:	2
+Version:	1.1.7
+Release:	1
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
-Group(de):	Libraries
+Group(cs):	Knihovny
+Group(da):	Biblioteker
+Group(de):	Bibliotheken
 Group(es):	Bibliotecas
 Group(fr):	Librairies
+Group(is):	Agerasˆfn
+Group(it):	Librerie
+Group(ja):	•È•§•÷•È•Í
+Group(no):	Biblioteker
 Group(pl):	Biblioteki
+Group(pt):	Bibliotecas
 Group(pt_BR):	Bibliotecas
 Group(ru):	‚…¬Ã…œ‘≈À…
+Group(sl):	Knjiænice
+Group(sv):	Bibliotek
 Group(uk):	‚¶¬Ã¶œ‘≈À…
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%{name}-%{version}.tar.gz
-Patch0:		%{name}-remove_stupid_install-data-hook_targets.patch
+Source0:	http://prdownloads.sourceforge.net/libsigc/%{name}-%{version}.tar.gz
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	m4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libsigc++-examples
+Conflicts:	%{name} < 1.1.0
 
 %description
 This library implements a full callback system for use in widget
@@ -48,12 +58,21 @@ callbackÛw.
 Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	NarzÍdzia programistyczne do ∂rodowiska libsig++
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	V˝vojovÈ prost¯edky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(is):	ﬁrÛunartÛl/Agerasˆfn
+Group(it):	Sviluppo/Librerie
+Group(ja):	≥´»Ø/•È•§•÷•È•Í
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(sl):	Razvoj/Knjiænice
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	m4
 Requires:	%{name} = %{version}
@@ -69,12 +88,21 @@ kontrol± typÛw.
 Summary:	Static Typesafe Signal Framework for C++ libraries
 Summary(pl):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	V˝vojovÈ prost¯edky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(is):	ﬁrÛunartÛl/Agerasˆfn
+Group(it):	Sviluppo/Librerie
+Group(ja):	≥´»Ø/•È•§•÷•È•Í
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(sl):	Razvoj/Knjiænice
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name}-devel = %{version}
 
@@ -86,7 +114,6 @@ Statyczna biblioteka libsigc++ - ∂rodowiska sygna≥Ûw z kontrol± typÛw.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
@@ -101,11 +128,12 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-gzip -9nf AUTHORS README IDEAS NEWS ChangeLog TODO doc/*
+gzip -9nf AUTHORS README IDEAS FEATURES NEWS ChangeLog TODO doc/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -120,11 +148,12 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc *.gz doc/*
-%attr(755,root,root) %{_bindir}/sigc-config
+%attr(755,root,root) %{_bindir}/sigc-config*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-%{_includedir}/sigc++-1.0
-%{_libdir}/sigc++-1.0
+%{_includedir}/sigc++-*
+%{_libdir}/sigc++-*
+%{_pkgconfigdir}/*
 %{_aclocaldir}/*
 
 %files static
