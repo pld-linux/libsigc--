@@ -3,13 +3,12 @@ Name:		libsigc++
 Version:	1.0.2
 Release:	1
 License:	LGPL
+Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
 Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
-Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/libsigc/%name-%version.tar.gz
-Patch0:		%{name}-ac_thread.sh.patch
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,10 +49,8 @@ Static Typesafe Signal Framework for C++ libraries.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-autoconf
 CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions"
 %configure
 
