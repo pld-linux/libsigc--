@@ -18,7 +18,7 @@ BuildRequires:	libtool
 BuildRequires:	m4
 BuildRequires:	perl-base
 Obsoletes:	libsigc++-examples
-Conflicts:	%{name} < 1.1.0
+Conflicts:	libsigc++ < 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,8 +45,8 @@ callbacków.
 Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
-Requires:	m4
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	m4
 
 %description devel
 Development tools for the Typesafe Signal Framework for C++.
@@ -72,7 +72,6 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %patch0 -p1
 
 %build
-rm -f scripts/missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
