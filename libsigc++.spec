@@ -50,7 +50,7 @@ Static Typesafe Signal Framework for C++ libraries.
 %build
 autoconf
 LDFLAGS="-s"
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-exceptions"
 export LDFLAGS CXXFLAGS
 %configure
 
