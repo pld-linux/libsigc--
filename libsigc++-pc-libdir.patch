@@ -1,0 +1,10 @@
+diff -dur libsigc++-1.2.5.orig/sigc++-1.2.pc.in libsigc++-1.2.5/sigc++-1.2.pc.in
+--- libsigc++-1.2.5.orig/sigc++-1.2.pc.in	2002-10-09 11:05:34.000000000 +0200
++++ libsigc++-1.2.5/sigc++-1.2.pc.in	2004-01-26 11:00:40.214519555 +0100
+@@ -7,4 +7,4 @@
+ Description: Type-safe signal and callback system for C++
+ Version: @VERSION@
+ Libs: -L${libdir} -lsigc-1.2
+-Cflags: -I${exec_prefix}/lib/sigc++-1.2/include -I${includedir}/sigc++-1.2
++Cflags: -I${libdir}/sigc++-1.2/include -I${includedir}/sigc++-1.2
+Only in libsigc++-1.2.5: sigc++-1.2.pc.in~
