@@ -51,7 +51,7 @@ Static Typesafe Signal Framework for C++ libraries.
 %setup -q
 
 %build
-CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions"
+CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-exceptions"
 %configure
 
 %{__make}
