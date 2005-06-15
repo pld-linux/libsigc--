@@ -1,4 +1,4 @@
-%bcond_without	static	# don't build static library
+%bcond_without	static_libs	# don't build static library
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
 Name:		libsigc++
@@ -87,7 +87,7 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %{__autoconf}
 %{__automake}
 %configure \
-	%{!?with_static:--disable-static}
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -121,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc devel-docs/*
 
-%if %{with static}
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
