@@ -5,7 +5,7 @@ Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
 Name:		libsigc++
 Version:	2.0.14
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
@@ -48,6 +48,7 @@ Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	libstdc++-devel
 Requires:	m4
 
 %description devel
