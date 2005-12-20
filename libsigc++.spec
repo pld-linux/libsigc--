@@ -92,7 +92,7 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static}
-%{__make}
+%{__make} all check
 
 %install
 rm -rf $RPM_BUILD_ROOT
