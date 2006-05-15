@@ -1,14 +1,18 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
 Name:		libsigc++
-Version:	2.0.12
+Version:	2.0.17
 Release:	1
 Epoch:		1
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	edd1ad751057e82742edaa73ac5353f2
+# Source0-md5:	fde0ee69e3125e982746d9fe005763e1
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.9
@@ -45,6 +49,7 @@ Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	libstdc++-devel
 Requires:	m4
 
 %description devel
@@ -85,8 +90,9 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 %{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
-%configure
-%{__make}
+%configure \
+	%{!?with_static_libs:--disable-static}
+%{__make} all check
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -119,6 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc devel-docs/*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
