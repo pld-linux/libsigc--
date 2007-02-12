@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	The Typesafe Signal Framework for C++
-Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
+Summary(pl.UTF-8):   Åšrodowisko sygnaÅ‚Ã³w z kontrolÄ… typÃ³w dla C++
 Name:		libsigc++
 Version:	2.0.17
 Release:	2
@@ -34,19 +34,19 @@ method, function, or function object. It contains adaptor classes for
 connection of dissimilar callbacks and has an ease of use unmatched by
 other C++ callback libraries.
 
-%description -l pl
-Ta biblioteka jest implementacj± pe³nego systemu callbacków do
-u¿ywania w bibliotekach widgetów, interfejsach abstrakcyjnych i
-ogólnym programowaniu. Oryginalnie by³a to czê¶æ zestawu widgetów
-Gtk--, ale jest teraz oddzieln± bibliotek± ogólniejszego
-przeznaczenia. Jest to kompletna biblioteka tego typu z mo¿liwo¶ci±
-³±czenia abstrakcyjnych callbacków z metodami klas, funkcjami lub
-obiektami funkcji. Zawiera klasy adapterów do ³±czenia ró¿nych
-callbacków.
+%description -l pl.UTF-8
+Ta biblioteka jest implementacjÄ… peÅ‚nego systemu callbackÃ³w do
+uÅ¼ywania w bibliotekach widgetÃ³w, interfejsach abstrakcyjnych i
+ogÃ³lnym programowaniu. Oryginalnie byÅ‚a to czÄ™Å›Ä‡ zestawu widgetÃ³w
+Gtk--, ale jest teraz oddzielnÄ… bibliotekÄ… ogÃ³lniejszego
+przeznaczenia. Jest to kompletna biblioteka tego typu z moÅ¼liwoÅ›ciÄ…
+Å‚Ä…czenia abstrakcyjnych callbackÃ³w z metodami klas, funkcjami lub
+obiektami funkcji. Zawiera klasy adapterÃ³w do Å‚Ä…czenia rÃ³Å¼nych
+callbackÃ³w.
 
 %package devel
 Summary:	Development tools for the Typesafe Signal Framework for C++
-Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
+Summary(pl.UTF-8):   NarzÄ™dzia programistyczne do Å›rodowiska libsig++
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libstdc++-devel
@@ -55,32 +55,32 @@ Requires:	m4
 %description devel
 Development tools for the Typesafe Signal Framework for C++.
 
-%description devel -l pl
-Narzêdzia programistyczne do ¶rodowiska libsigc++ - sygna³ów z
-kontrol± typów.
+%description devel -l pl.UTF-8
+NarzÄ™dzia programistyczne do Å›rodowiska libsigc++ - sygnaÅ‚Ã³w z
+kontrolÄ… typÃ³w.
 
 %package doc
 Summary:	Reference documentation for libsigc++
-Summary(pl):	Szczegó³owa dokumentacja dla libsigc++
+Summary(pl.UTF-8):   SzczegÃ³Å‚owa dokumentacja dla libsigc++
 Group:		Documentation
 
 %description doc
 Reference documentation for libsigc++.
 
-%description doc -l pl
-Szczegó³owa dokumentacja dla libsigc++.
+%description doc -l pl.UTF-8
+SzczegÃ³Å‚owa dokumentacja dla libsigc++.
 
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
-Summary(pl):	Statyczna biblioteka libsigc++
+Summary(pl.UTF-8):   Statyczna biblioteka libsigc++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static Typesafe Signal Framework for C++ libraries.
 
-%description static -l pl
-Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
+%description static -l pl.UTF-8
+Statyczna biblioteka libsigc++ - Å›rodowiska sygnaÅ‚Ã³w z kontrolÄ… typÃ³w.
 
 %prep
 %setup -q
