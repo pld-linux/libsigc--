@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	The Typesafe Signal Framework for C++
-Summary(pl.UTF-8):   Środowisko sygnałów z kontrolą typów dla C++
+Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++
 Version:	2.0.17
 Release:	2
@@ -46,7 +46,7 @@ callbacków.
 
 %package devel
 Summary:	Development tools for the Typesafe Signal Framework for C++
-Summary(pl.UTF-8):   Narzędzia programistyczne do środowiska libsig++
+Summary(pl.UTF-8):	Narzędzia programistyczne do środowiska libsig++
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libstdc++-devel
@@ -61,7 +61,7 @@ kontrolą typów.
 
 %package doc
 Summary:	Reference documentation for libsigc++
-Summary(pl.UTF-8):   Szczegółowa dokumentacja dla libsigc++
+Summary(pl.UTF-8):	Szczegółowa dokumentacja dla libsigc++
 Group:		Documentation
 
 %description doc
@@ -72,7 +72,7 @@ Szczegółowa dokumentacja dla libsigc++.
 
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
-Summary(pl.UTF-8):   Statyczna biblioteka libsigc++
+Summary(pl.UTF-8):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
