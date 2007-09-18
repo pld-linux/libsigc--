@@ -5,14 +5,13 @@
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++
-Version:	2.0.17
-Release:	2
+Version:	2.0.18
+Release:	1
 Epoch:		1
-License:	LGPL
-Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
+License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	fde0ee69e3125e982746d9fe005763e1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	ddebf5aafc8525d10366a8724abc9f28
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.9
@@ -111,22 +110,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libsigc-2.0.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/sigc++-*
-%{_libdir}/sigc++*
-%{_pkgconfigdir}/*
-
-%files doc
-%defattr(644,root,root,755)
-%doc devel-docs/*
+%attr(755,root,root) %{_libdir}/libsigc-2.0.so
+%{_libdir}/libsigc-2.0.la
+%{_includedir}/sigc++-2.0
+%{_libdir}/sigc++-2.0
+%{_pkgconfigdir}/sigc++-2.0.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libsigc-2.0.a
 %endif
+
+%files doc
+%defattr(644,root,root,755)
+%doc devel-docs/*
