@@ -91,7 +91,7 @@ Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
 %{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static}
-%{__make} all check
+%{__make} -j1 all check
 
 %install
 rm -rf $RPM_BUILD_ROOT
