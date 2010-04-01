@@ -5,19 +5,20 @@
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++
-Version:	2.2.3
+Version:	2.2.5
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	f4574b343eebc4bff66a9e1e5ce6e490
+# Source0-md5:	50aa425e7fbd4b03a67ff337f454985a
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1.9
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	m4
+BuildRequires:	mm-common >= 0.7.2
 BuildRequires:	perl-base
 Obsoletes:	libsigc++-examples
 Conflicts:	libsigc++ < 1.1.0
@@ -86,11 +87,11 @@ Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I scripts
+%{__aclocal} -I build
 %{__autoconf}
 %{__automake}
 %configure \
-	%{!?with_static_libs:--disable-static}
+	%{?with_static_libs:--enable-static}
 %{__make} -j1 all check
 
 %install
@@ -98,8 +99,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_docdir}/libsigc-2.0/docs devel-docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -129,4 +128,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(644,root,root,755)
-%doc devel-docs/*
+%{_datadir}/devhelp/books/libsigc++-2.0/libsigc++-2.0.devhelp2
+%{_docdir}/libsigc++-2.0
