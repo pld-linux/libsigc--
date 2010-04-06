@@ -20,6 +20,7 @@ BuildRequires:	libtool
 BuildRequires:	m4
 BuildRequires:	mm-common >= 0.7.2
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 Obsoletes:	libsigc++-examples
 Conflicts:	libsigc++ < 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
