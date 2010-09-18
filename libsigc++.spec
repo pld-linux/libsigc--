@@ -60,17 +60,6 @@ Development tools for the Typesafe Signal Framework for C++.
 Narzędzia programistyczne do środowiska libsigc++ - sygnałów z
 kontrolą typów.
 
-%package doc
-Summary:	Reference documentation for libsigc++
-Summary(pl.UTF-8):	Szczegółowa dokumentacja dla libsigc++
-Group:		Documentation
-
-%description doc
-Reference documentation for libsigc++.
-
-%description doc -l pl.UTF-8
-Szczegółowa dokumentacja dla libsigc++.
-
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
 Summary(pl.UTF-8):	Statyczna biblioteka libsigc++
@@ -82,6 +71,17 @@ Static Typesafe Signal Framework for C++ libraries.
 
 %description static -l pl.UTF-8
 Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
+
+%package doc
+Summary:	Reference documentation for libsigc++
+Summary(pl.UTF-8):	Szczegółowa dokumentacja dla libsigc++
+Group:		Documentation
+
+%description doc
+Reference documentation for libsigc++.
+
+%description doc -l pl.UTF-8
+Szczegółowa dokumentacja dla libsigc++.
 
 %prep
 %setup -q
