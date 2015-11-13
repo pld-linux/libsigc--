@@ -5,13 +5,13 @@
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++
-Version:	2.6.1
+Version:	2.6.2
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.6/%{name}-%{version}.tar.xz
-# Source0-md5:	136bbdc53c538b5824eddfd2a7fe10db
+# Source0-md5:	d2f33ca0b4b012ef60669e3b3cebe956
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
