@@ -1,24 +1,25 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
+%bcond_without	tests		# check target
 #
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++
-Version:	2.8.0
+Version:	2.10.0
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.8/%{name}-%{version}.tar.xz
-# Source0-md5:	3d26acbc813fa54edd4401ce1a981677
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.10/%{name}-%{version}.tar.xz
+# Source0-md5:	70bcbde2c900e4925d6ef4bf50954195
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	libstdc++-devel >= 6:4.6
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	m4
-BuildRequires:	mm-common >= 0.9.8
+BuildRequires:	mm-common >= 0.9.10
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
@@ -94,8 +95,13 @@ Szczegółowa dokumentacja dla libsigc++.
 %{__autoconf}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	%{?with_static_libs:--enable-static}
-%{__make} -j1 all check
+%{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
