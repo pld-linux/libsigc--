@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 %bcond_without	tests		# check target
+%bcond_without	docs		# docs
 #
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
@@ -102,6 +103,7 @@ mm-common-prepare --copy --force
 %{__automake}
 %configure \
 	--disable-silent-rules \
+	%{!?with_docs:--disable-documentation} \
 	%{?with_static_libs:--enable-static}
 %{__make}
 
@@ -143,7 +145,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libsigc-2.0.a
 %endif
 
+%if %{with docs}
 %files doc
 %defattr(644,root,root,755)
 %{_datadir}/devhelp/books/libsigc++-2.0
 %{_docdir}/libsigc++-2.0
+%endif
