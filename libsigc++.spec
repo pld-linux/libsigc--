@@ -56,8 +56,8 @@ callbacków.
 Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Narzędzia programistyczne do środowiska libsig++
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	libstdc++-devel >= 6:4.7
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
+Requires:	libstdc++-devel%{?_isa} >= 6:4.7
 Requires:	m4
 
 %description devel
@@ -71,7 +71,7 @@ kontrolą typów.
 Summary:	Static Typesafe Signal Framework for C++ libraries
 Summary(pl.UTF-8):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{epoch}:%{version}-%{release}
 
 %description static
 Static Typesafe Signal Framework for C++ libraries.
@@ -129,12 +129,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README.md
-%attr(755,root,root) %{_libdir}/libsigc-2.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libsigc-2.0.so.0
+%{_libdir}/libsigc-2.0.so.*.*.*
+%ghost %{_libdir}/libsigc-2.0.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsigc-2.0.so
+%{_libdir}/libsigc-2.0.so
 %{_includedir}/sigc++-2.0
 %{_libdir}/sigc++-2.0
 %{_pkgconfigdir}/sigc++-2.0.pc
